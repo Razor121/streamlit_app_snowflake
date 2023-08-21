@@ -13,6 +13,7 @@ selected_fruits=streamlit.multiselect("Please select fruits: ",list(fruit_data.i
 fruits_to_show=fruit_data.loc[selected_fruits]
 if len(selected_druits)>0:
   streamlit.dataframe(fruits_to_show)
+  streamlit.text(tostring(len(selected_fruits)))
 else:
   streamlit.dataframe(fruit_data)
 
