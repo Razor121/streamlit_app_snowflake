@@ -9,9 +9,9 @@ import pandas as pd
 fruit_data= pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 fruit_data= fruit_data.set_index('Fruit')
 
-streamlit.multiselect("Please select fruits: ",list(fruit_data.index))
-
-streamlit.dataframe(fruit_data)
+selected_fruits=streamlit.multiselect("Please select fruits: ",list(fruit_data.index))
+fruits_to_show=fruit_data.loc[selected_fruits]
+streamlit.dataframe(fruits_to_show)
 
 
 
