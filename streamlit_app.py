@@ -11,7 +11,10 @@ fruit_data= fruit_data.set_index('Fruit')
 
 selected_fruits=streamlit.multiselect("Please select fruits: ",list(fruit_data.index),["Avocado","Strawberries"])
 fruits_to_show=fruit_data.loc[selected_fruits]
-streamlit.dataframe(fruits_to_show)
+if len(selected_druits)>0:
+  streamlit.dataframe(fruits_to_show)
+else:
+  streamlit.dataframe(fruit_data)
 
 
 
