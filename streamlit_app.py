@@ -11,12 +11,7 @@ fruit_data= fruit_data.set_index('Fruit')
 
 
 
-
-selected_fruits=streamlit.multiselect("Please select your fruits: ", list(fruit_data.index))
-
-fruits_to_show= fruit_data.loc[selected_fruits]
-
-streamlit.dataframe(fruit_to_show)
+streamlit.datagrame(fruit_data)
 
 
 
