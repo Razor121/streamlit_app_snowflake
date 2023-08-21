@@ -1,7 +1,7 @@
-import streamlit as st
+import streamlit 
 
-st.header("This is my first streamlit application")
-st.text("This is a sample text")
+streamlit.header("This is my first streamlit application")
+streamlit.text("This is a sample text")
 
 
 import pandas as pd
@@ -12,11 +12,11 @@ fruit_data= fruit_data.set_index('Fruit')
 
 
 
-selected_fruits=st.multiselect("Please select your fruits: ", list(fruit_data.index))
+selected_fruits=streamlit.multiselect("Please select your fruits: ", list(fruit_data.index))
 
 fruits_to_show= fruit_data.loc[selected_fruits]
 
-st.dataframe(fruit_to_show)
+streamlit.dataframe(fruit_to_show)
 
 
 
