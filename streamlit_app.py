@@ -11,7 +11,7 @@ fruit_data= fruit_data.set_index('Fruit')
 
 
 
-streamlit.datagrame(fruit_data)
+streamlit.dataframe(fruit_data)
 
 
 
