@@ -12,7 +12,7 @@ fruit_data= fruit_data.set_index('Fruit')
 
 
 
-selected_fruits=st.multiselect("", list(fruit_data.index), None, special_internal_function, None, None, None, None, None, 10, "Please select fruits of your choice: ", False, "visible")
+selected_fruits=st.multiselect("Please select your fruits: ", list(fruit_data.index))
 
 fruits_to_show= fruit_data.loc[selected_fruits]
 
