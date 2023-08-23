@@ -21,16 +21,22 @@ streamlit.dataframe(fruits_to_show)
 
 # FRUITYVICE
 
+def get_fruityvice_data(this_fruit_choice):
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+this_fruit_choice)
+    fruit_normalize= pd.json_normalize(fruityvice_response.json())
+    #fruit_normalize= fruit_normalize.set_index('id')
+    return fruit_normalize
+  
+
+
 streamlit.header("Fruity vice fruit advice")
 try:
   fruit_choice= streamlit.text_input('what fruit do you want to know about')  #,'Kiwi'
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information.")
   else:
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-    fruit_normalize= pd.json_normalize(fruityvice_response.json())
-    #fruit_normalize= fruit_normalize.set_index('id')
-    streamlit.dataframe(fruit_normalize)
+    back_from_action=get_fruityvice_data(fruit_choice)
+    streamlit.dataframe(back_from_action)
 except URLError as e:
     streamlit.error("noty hora bhen ke lode")
 
