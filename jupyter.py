@@ -32,26 +32,13 @@ try:
     #fruit_normalize= fruit_normalize.set_index('id')
     streamlit.dataframe(fruit_normalize)
 except URLError as e:
-    streamlit.error("noty hora bhen ke lode)
+    streamlit.error("noty hora bhen ke lode")
     
 
 
 
 
-# the streamlit code above will not be affected after the below line is executed
-streamlit.stop()
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("select fruit_name from fruit_load_list")
-my_data_row = my_cur.fetchall()
-streamlit.text("The fuirt load list contains:")
-streamlit.dataframe(my_data_row)
-
-add_my_fruit= streamlit.text_input("What fruits would like to add?")
-streamlit.write("Thanks for adding",add_my_fruit)
-
-my_cur.execute("insert into fruit_load_list values('"+add_my_fruit+"')")
                                    
 
 
