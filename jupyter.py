@@ -42,7 +42,7 @@ except URLError as e:
 
 
 # the streamlit code above will not be affected after the below line is executed
-streamlit.stop()
+# streamlit.stop()
 
 
 streamlit.header("The fuirt load list contains:")
