@@ -17,7 +17,7 @@ import requests
 
 streamlit.header("Fruity vice fruit advice")
 fruit_choice= streamlit.text_input('what fruit do you want to know about','Kiwi')
-streamlit.write('User entered this',fruit_choice)
+streamlit.write('User entered ',fruit_choice)
 
 
 
