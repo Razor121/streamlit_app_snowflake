@@ -1,3 +1,4 @@
+import snowflake
 import streamlit 
 
 
@@ -31,6 +32,5 @@ fruit_normalize= fruit_normalize.set_index('id')
 streamlit.dataframe(fruit_normalize)
 
 
-import snowflake.connector  
 
 
