@@ -1,2 +1,1 @@
-git cd snowflake-connector-python 
-python -m pip install -U
+snowflake-connector-python
