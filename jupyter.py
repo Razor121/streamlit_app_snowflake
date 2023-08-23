@@ -37,18 +37,6 @@ except URLError as e:
 
 
 
-#streamlit.write('User entered ',fruit_choice)
-
-
-
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-#streamlit.text(fruityvice_response.json())
-
-
-fruit_normalize= pd.json_normalize(fruityvice_response.json())
-fruit_normalize= fruit_normalize.set_index('id')
-streamlit.dataframe(fruit_normalize)
-
 
 # the streamlit code above will not be affected after the below line is executed
 streamlit.stop()
