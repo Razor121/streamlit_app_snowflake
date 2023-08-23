@@ -20,13 +20,6 @@ streamlit.dataframe(fruits_to_show)
 
 
 # FRUITYVICE
-def fruit_dataframe(fruit_choice):
-  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-  fruit_normalize= pd.json_normalize(fruityvice_response.json())
-  #fruit_normalize= fruit_normalize.set_index('id')
-  streamlit.dataframe(fruit_normalize)
-  
-
 
 streamlit.header("Fruity vice fruit advice")
 try:
@@ -34,7 +27,10 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information.")
   else:
-    fruit_datafrane(fruit_choice)
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+    fruit_normalize= pd.json_normalize(fruityvice_response.json())
+    #fruit_normalize= fruit_normalize.set_index('id')
+    streamlit.dataframe(fruit_normalize)
 except URLError as e:
    streamlit.error()
     
