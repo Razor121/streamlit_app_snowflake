@@ -19,10 +19,29 @@ fruits_to_show=fruit_data.loc[selected_fruits]
 streamlit.dataframe(fruits_to_show)
 
 
+# FRUITYVICE
+def fruit_dataframe(fruit_choice):
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+  fruit_normalize= pd.json_normalize(fruityvice_response.json())
+  #fruit_normalize= fruit_normalize.set_index('id')
+  streamlit.dataframe(fruit_normalize)
+  
+
 
 streamlit.header("Fruity vice fruit advice")
-fruit_choice= streamlit.text_input('what fruit do you want to know about','Kiwi')
-streamlit.write('User entered ',fruit_choice)
+try:
+  fruit_choice= streamlit.text_input('what fruit do you want to know about')  #,'Kiwi'
+  if not fruit_choice:
+    streamlit.error("Please select a fruit to get information.")
+  else:
+    fruit_datafrane(fruit_choice)
+ except:
+   streamlit.error()
+    
+
+
+
+#streamlit.write('User entered ',fruit_choice)
 
 
 
