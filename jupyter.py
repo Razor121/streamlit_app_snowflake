@@ -32,7 +32,7 @@ try:
     #fruit_normalize= fruit_normalize.set_index('id')
     streamlit.dataframe(fruit_normalize)
 except URLError as e:
-    streamlit.error()
+    streamlit.error("noty hora bhen ke lode)
     
 
 
