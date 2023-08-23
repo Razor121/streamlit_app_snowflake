@@ -19,6 +19,7 @@ streamlit.text(fruityvice_response.json())
 
 
 fruit_normalize= pd.json_normalize(fruityvice_response.json())
+fruit_normalize= fruit_normalize.set_index('Name')
 streamlit.dataframe(fruit_normalize)
 
 
